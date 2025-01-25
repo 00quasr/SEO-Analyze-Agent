@@ -20,6 +20,7 @@ To scrape a website, run the script and input the desired URL when prompted. The
 - Python 3.x
 - `requests` library
 - `beautifulsoup4` library
+- `crewai` 
 
 ## Installation
 
