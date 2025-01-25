@@ -1,27 +1,54 @@
-# SEO-Agent Project
+# AiLatestDevelopment Crew
 
-This project includes:
-- Web scraping logic to extract meta tags, headings, and images from websites.
-- SEO analysis modules to evaluate and improve website visibility.
-- Integration with CrewAI for enhanced data processing and insights.
-
-## Features
-
-- **Web Scraping**: Utilizes BeautifulSoup and requests to scrape website content, including meta tags, headings, and images.
-- **SEO Analysis**: Tools and modules designed to analyze and optimize website SEO performance.
-- **CrewAI Integration**: Leverages AI capabilities for advanced data analysis and insights.
-
-## Usage
-
-To scrape a website, run the script and input the desired URL when prompted. The scraped data will be saved to a JSON file for further analysis.
-
-## Requirements
-
-- Python 3.x
-- `requests` library
-- `beautifulsoup4` library
-- `crewai` 
+Welcome to the AiLatestDevelopment Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
 
 ## Installation
 
-Install the required libraries using pip:
+Ensure you have Python >=3.10 <=3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+
+First, if you haven't already, install uv:
+
+```bash
+pip install uv
+```
+
+Next, navigate to your project directory and install the dependencies:
+
+(Optional) Lock the dependencies and install them by using the CLI command:
+```bash
+crewai install
+```
+### Customizing
+
+**Add your `OPENAI_API_KEY` into the `.env` file**
+
+- Modify `src/ai_latest_development/config/agents.yaml` to define your agents
+- Modify `src/ai_latest_development/config/tasks.yaml` to define your tasks
+- Modify `src/ai_latest_development/crew.py` to add your own logic, tools and specific args
+- Modify `src/ai_latest_development/main.py` to add custom inputs for your agents and tasks
+
+## Running the Project
+
+To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+
+```bash
+$ crewai run
+```
+
+This command initializes the ai-latest-development Crew, assembling the agents and assigning them tasks as defined in your configuration.
+
+This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+
+## Understanding Your Crew
+
+The ai-latest-development Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+
+## Support
+
+For support, questions, or feedback regarding the AiLatestDevelopment Crew or crewAI.
+- Visit our [documentation](https://docs.crewai.com)
+- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
+- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
+- [Chat with our docs](https://chatg.pt/DWjSBZn)
+
+Let's create wonders together with the power and simplicity of crewAI.
