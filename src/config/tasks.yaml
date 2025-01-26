@@ -1,0 +1,53 @@
+data_collection_task:
+  description: >
+    Using the provided website URL, collect comprehensive SEO data by scraping and analyzing its content.
+    Focus on gathering key SEO metrics including meta tags, headings, content structure,
+    backlinks, keyword usage, page load times, and mobile responsiveness.
+    Research competitor websites and industry benchmarks for comparative analysis.
+  expected_output: >
+    A structured dataset containing:
+    - Website technical SEO audit results
+    - Content analysis metrics
+    - Competitor benchmarking data
+    - Keyword rankings and opportunities
+    - Site performance metrics
+    - Mobile optimization status
+  agent: scraper_agent
+
+analysis_task:
+  description: >
+    Perform a detailed analysis of the collected SEO data.
+    Analyze key metrics including keyword rankings, search volume, and competition levels.
+    Evaluate technical SEO elements like site structure, meta tags, and page speed scores.
+    Assess content quality, relevance, and optimization for target keywords.
+    Compare performance against competitor benchmarks and industry standards.
+  expected_output: >
+    A comprehensive SEO analysis report including:
+    - Keyword performance metrics and rankings
+    - Technical SEO audit findings
+    - Content optimization assessment
+    - Competitor analysis insights 
+    - Site speed and mobile usability metrics
+    - Backlink profile evaluation
+    - Search visibility trends
+  agent: analyse_agent
+
+optimization_task:
+  description: >
+    Based on the SEO analysis results, develop comprehensive optimization strategies.
+    Create actionable recommendations for on-page and technical SEO improvements.
+    Propose content optimization tactics for target keywords and user intent.
+    Design link building and authority development strategies.
+    Outline mobile optimization and site speed enhancement plans.
+    Include specific implementation steps and timeline recommendations.
+  expected_output: >
+    A detailed SEO optimization plan including:
+    - Technical SEO improvement recommendations (meta tags, site structure, etc.)
+    - Content optimization strategies for target keywords
+    - Internal and external linking tactics
+    - Mobile optimization and page speed enhancements
+    - Implementation timeline and prioritization
+    - Expected ranking improvements and traffic gains
+    - Resource requirements and ROI projections
+    - Risk assessment and mitigation approaches
+  agent: optimization_agent
