@@ -9,12 +9,6 @@ from crewai_tools import ScrapeWebsiteTool  # Import the tool
 
 load_dotenv()
 
-# Uncomment the following line to use an example of a custom tool
-# from ai_latest_development.tools.custom_tool import MyCustomTool
-
-# Check our tools documentations for more information on how to use them
-# from crewai_tools import SerperDevTool
-
 @CrewBase
 class SEOAnalyseCrew():
 	"""SEOAnalyseCrew"""
@@ -32,8 +26,8 @@ class SEOAnalyseCrew():
 
 	# Configure OpenAI LLM
 	openai_llm = LLM(
-		model='gpt-4o',  # Use the model specified in your .env
-		api_key=os.getenv('OPENAI_API_KEY'),  # Use the API key from .env
+		model='gpt-4o',  
+		api_key=os.getenv('OPENAI_API_KEY'),  
 	)
 
 	@agent
@@ -94,8 +88,8 @@ class SEOAnalyseCrew():
 	def crew(self) -> Crew:
 		"""Creates the SEOAnalyseCrew"""
 		return Crew(
-			agents=self.agents, # Automatically created by the @agent decorator
-			tasks=self.tasks, # Automatically created by the @task decorator
+			agents=self.agents, 
+			tasks=self.tasks, 
 			process=Process.sequential,
 			verbose=True,
 		)
