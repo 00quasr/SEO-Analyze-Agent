@@ -1,11 +1,15 @@
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from dotenv import load_dotenv
-import openai  # Import OpenAI
-import os  # Import os module for accessing environment variabl
+import openai
+import os
 import yaml
+from crewai_tools import ScrapeWebsiteTool, SeleniumScrapingTool
+from tools.SeleniumScraper import SeleniumScraper
+from tools.LoadingTimeTracker import LoadingTimeTracker
+from tools.MobileTesting import MobileOptimizationTool
 
-from crewai_tools import ScrapeWebsiteTool  # Import the tool
+
 
 load_dotenv()
 
@@ -26,15 +30,19 @@ class SEOAnalyseCrew():
 
 	# Configure OpenAI LLM
 	openai_llm = LLM(
-		model='gpt-4o',  
+		model='gpt-4',  
 		api_key=os.getenv('OPENAI_API_KEY'),  
 	)
 
 	@agent
-	def scraper_agent(self) -> Agent:
+	def scraper_agent(self) -> Agent:		
 		return Agent(
 			config=self.agents_config['scraper_agent'],
-			tools=[ScrapeWebsiteTool(website_url=self.website_url)],
+			tools=[
+				SeleniumScraper(),
+				LoadingTimeTracker(),
+				MobileOptimizationTool(),
+			],
 			verbose=True,
 			llm=self.openai_llm  
 		)
@@ -55,20 +63,21 @@ class SEOAnalyseCrew():
 			llm=self.openai_llm  
 		)
 
+
 	@task
 	def data_collection_task(self) -> Task:
 		task_config = self.tasks_config['data_collection_task']
 		return Task(
 			description=task_config['description'].format(website_url=self.website_url),
 			agent=self.scraper_agent(),
-			expected_output=task_config['expected_output']
+			expected_output=task_config['expected_output'],
 		)
 
 	@task
 	def analysis_task(self) -> Task:
 		task_config = self.tasks_config['analysis_task']
 		return Task(
-			description=task_config['description'],
+			description=task_config['description'].format(website_url=self.website_url),
 			agent=self.analyse_agent(),
 			expected_output=task_config['expected_output'],
 			output_file='report.md'
