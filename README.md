@@ -30,22 +30,6 @@ This project uses AI agents via crewAI to perform comprehensive SEO analysis and
 - ROI estimates
 
 
-
-## Project Structure
-
-src/
-├── config/
-│ ├── agents.yaml # Agent configurations
-│ └── tasks.yaml # Task definitions
-├── tools/
-│ ├── SeleniumScraper.py # Web content scraping
-│ ├── LoadingTimeTracker.py # Performance monitoring
-│ └── MobileTesting.py # Mobile optimization testing
-├── crew.py # Main crew configuration
-└── main.py # Entry point
-
-
-
 ## Installation
 
 ### Requirements
